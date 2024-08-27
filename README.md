@@ -1,30 +1,87 @@
-# Phlex::Remixicon
+<p align="center">
+  <a href="https://github.com/danieldocki/phlex-remixicon#gh-light-mode-only">
+    <img src="https://remixicon.com/img/logo/light/text.svg#gh-light-mode-only" alt="Remix Icon is a set of open-source neutral-style system symbols for designers and developers. Unlike a patchwork icon library, 2800+ icons are all elaborately crafted so that they are born with the genes of readability, consistency, and perfect pixels." width="480">
+  </a>
+  <a href="https://github.com/danieldocki/phlex-remixicon#gh-dark-mode-only">
+    <img src="https://remixicon.com/img/logo/dark/text.svg#gh-dark-mode-only" alt="Remix Icon is a set of open-source neutral-style system symbols for designers and developers. Unlike a patchwork icon library, 2800+ icons are all elaborately crafted so that they are born with the genes of readability, consistency, and perfect pixels." width="480">
+  </a>
+</p>
 
-TODO: Delete this and the text below, and describe your gem
+# Phlex RemixIcon
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/phlex/remixicon`. To experiment with that code, run `bin/console` for an interactive prompt.
+[RemixIcon](https://remixicon.com/) implementation for [Phlex](https://phlex.fun/)
+
+## Highlights
+- 🎨 2800+ icons
+- 🚀 Lazy Loading
 
 ## Installation
 
-TODO: Replace `UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG` with your gem name right after releasing it to RubyGems.org. Please do not do it earlier due to security reasons. Alternatively, replace this section with instructions to install your gem from git if you don't plan to release to RubyGems.org.
-
 Install the gem and add to the application's Gemfile by executing:
 
-    $ bundle add UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
+    bundle add phlex-remixicon
 
-If bundler is not being used to manage dependencies, install the gem by executing:
+Or add this line to your application's Gemfile:
 
-    $ gem install UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
+    gem "phlex-remixicon"
+
+Then add the following to your `ApplicationComponent`:
+
+```ruby
+class ApplicationComponent < Phlex::HTML
+  include Phlex::RemixIcon
+end
+```
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+class Home::IndexView < ApplicationView
+  def view_template
+    # Render "award" icon
+    render AwardFillIcon.new(size: 128, class: "text-amber-500")
+  end
+end
+```
+
+## Configuration
+
+You can configure the icon pack by creating an initializer:
+
+```ruby
+# config/initializers/phlex_remixicon.rb
+
+Phlex::Remixicon.configure do |config|
+  config.default_size = 16
+  config.default_props = { stroke_width: 4 }
+end
+```
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+To generate the latest version of icons, run:
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+```bash
+./bin/generate
+```
+
+Next, update the `VERSION` constant in `lib/phlex/remixicon/version.rb` to match the RemixIcon version, and then open a pull request.
+
+Thanks! ✌️
+
+## Roadmap
+
+- [ ] GitHub Actions to automatically update icons
+- [ ] Tests
+
+## Inspiration
+
+This project was inspired by other icon implementations for Phlex:
+
+- [phlex-lucide](https://github.com/akodkod/phlex-lucide) - A great implementation of Lucide Icons for Phlex.
+- [phlex-heroicons](https://github.com/nejdetkadir/phlex-heroicons) - Another excellent implementation, focusing on Heroicons.
+
+Both projects influenced the design and structure of Phlex::RemixIcon. We thank the authors for their inspiration and contributions to the Phlex ecosystem.
 
 ## Contributing
 
@@ -36,4 +93,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the Phlex::Remixicon project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/phlex-remixicon/blob/main/CODE_OF_CONDUCT.md).
+Everyone interacting in the Phlex::RemixIcon project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/phlex-remixicon/blob/main/CODE_OF_CONDUCT.md).
