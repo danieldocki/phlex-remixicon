@@ -7,9 +7,9 @@
   </a>
 </p>
 
-# Phlex RemixIcon
+# Phlex Remix Icon
 
-[RemixIcon](https://remixicon.com/) implementation for [Phlex](https://phlex.fun/)
+[Remix Icon](https://remixicon.com/) implementation for [Phlex](https://phlex.fun/)
 
 ## Highlights
 - 🎨 2800+ icons
@@ -29,7 +29,7 @@ Then add the following to your `ApplicationComponent`:
 
 ```ruby
 class ApplicationComponent < Phlex::HTML
-  include Phlex::RemixIcon
+  include Phlex::Remixicon
 end
 ```
 
@@ -65,7 +65,7 @@ To generate the latest version of icons, run:
 ./bin/generate
 ```
 
-Next, update the `VERSION` constant in `lib/phlex/remixicon/version.rb` to match the RemixIcon version, and then open a pull request.
+Next, update the `VERSION` constant in `lib/phlex/remixicon/version.rb` to match the Remix Icon version, and then open a pull request.
 
 Thanks! ✌️
 
@@ -81,7 +81,7 @@ This project was inspired by other icon implementations for Phlex:
 - [phlex-lucide](https://github.com/akodkod/phlex-lucide) - A great implementation of Lucide Icons for Phlex.
 - [phlex-heroicons](https://github.com/nejdetkadir/phlex-heroicons) - Another excellent implementation, focusing on Heroicons.
 
-Both projects influenced the design and structure of Phlex::RemixIcon. We thank the authors for their inspiration and contributions to the Phlex ecosystem.
+Both projects influenced the design and structure of Phlex::Remixicon. We thank the authors for their inspiration and contributions to the Phlex ecosystem.
 
 ## Contributing
 
@@ -93,4 +93,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the Phlex::RemixIcon project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/phlex-remixicon/blob/main/CODE_OF_CONDUCT.md).
+Everyone interacting in the Phlex::Remixicon project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/phlex-remixicon/blob/main/CODE_OF_CONDUCT.md).
