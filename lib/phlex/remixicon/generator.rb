@@ -97,9 +97,10 @@ module Phlex
         # Convert the SVG to a Phlex
         phlex_icon_content = Phlexing::Converter.convert(svg_icon)
 
-        # Add a bit of magic
+        # Add props to icons
         phlex_icon_content = phlex_icon_content
-          .gsub("\n) do |s|", ",\n**props) do |s|") # Add props to the block
+          .gsub("\n) { |s|", ",\n**props) { |s|") # Single-line
+          .gsub("\n) do |s|", ",\n**props) do |s|") # Multi-line
 
         # Write the Phlex file
         File.write("#{PHLEX_ICONS_PATH}/#{icon_file_name}.rb", phlex_icon_content)
@@ -123,8 +124,8 @@ module Phlex
 
         new_auto_gen_content = [AUTO_GEN_START.to_s]
         new_auto_gen_content += generated_icons.map do |icon|
-          class_name, file_name = icon
-          "autoload :#{class_name}, \"phlex/remixicon/icons/#{file_name}\""
+          _class_name, file_name = icon
+          "require_relative \"remixicon/icons/#{file_name}\""
         end
         new_auto_gen_content += [AUTO_GEN_END.to_s]
 
